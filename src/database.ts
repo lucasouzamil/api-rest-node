@@ -1,14 +1,14 @@
-import 'dotenv/config'
 import Knex from 'knex'
+import { env } from './env'
 
 if (!process.env.DATABASE_URL) {
-  throw new Error('Database not found')
+  throw new Error('Database not found.')
 }
 
 export const config = {
   client: 'sqlite3',
   connection: {
-    filename: process.env.DATABASE_URL,
+    filename: env.DATABASE_URL,
   },
   useNullAsDefault: true,
   migrations: {
